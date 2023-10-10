@@ -7,13 +7,13 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class Exercise2 {
+class Exercise5Test {
 
     @Test
     void generateSortedPendingPaymentsPerCustomer() {
         // TODO: prefetch all customers and put them in a map by id using name + ' ' + lastName as value
 //        Map<Integer, String> customers = CustomerConstants.ALL_CUSTOMERS;
-        // TODO: calculate total, sortByTotal and fetch corresponding name from customers map
+        // TODO: calculate total of the unpaid orders, sortByTotal and fetch corresponding name from customers map
         Map<String, Double> orders = new HashMap<>();
 //        Map<String, Double> orders = OrderConstants.ALL_ORDERS;
 

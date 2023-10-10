@@ -8,7 +8,7 @@ import java.util.List;
 import static com.colruytgroup.streams.data.CustomerConstants.ALL_CUSTOMERS;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class Exercise1 {
+class Exercise1Test {
 
     @Test
     void listOfAllCustomersWhereLastNameContainsE() {
