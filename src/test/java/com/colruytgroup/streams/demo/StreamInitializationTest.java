@@ -6,11 +6,13 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 import static com.colruytgroup.streams.data.ArticleConstants.ALL_ARTICLES;
 
-class StreamInitialization {
+class StreamInitializationTest {
 
     @Test
     void usingStreamFunctionOnAList() {
@@ -66,16 +68,46 @@ class StreamInitialization {
         //combine streams
         Stream<Article> stream = Stream.concat(importantArticles, alsoYummy);
 
-        stream = Stream.concat(stream, emptyArticlesStream);
+        //print the stream
+        stream.forEach(System.out::println);
+    }
+
+    @Test
+    void streamBuilder() {
+        //make a stream
+        Stream<Article> stream = Stream.<Article>builder()
+                .add(ArticleConstants.BEER)
+                .add(ArticleConstants.COFFEE_BEANS)
+                .add(ArticleConstants.PIZZA)
+                .build();
 
         //print the stream
         stream.forEach(System.out::println);
-
-        List<Article> list = stream.toList();
-        for (Article article : list) {
-            System.out.println(article);
-        }
     }
+
+    @Test
+    void wholeNumberStreamFromRange() {
+        //make the stream
+        IntStream intStream = IntStream.range(1, 10);
+        LongStream longStream = LongStream.range(1, 10);
+
+        //print the stream
+        intStream.forEach(System.out::println);
+        longStream.forEach(System.out::println);
+    }
+
+    @Test
+    void wholeNumberStreamFromRangeClosed() {
+        //make the stream
+        IntStream intStream = IntStream.rangeClosed(1, 10);
+        LongStream longStream = LongStream.rangeClosed(1, 10);
+
+        //print the stream
+        intStream.forEach(System.out::println);
+        longStream.forEach(System.out::println);
+    }
+
+    //TODO null safe method receiving a list of articles and returning a stream of articles
 
     private List<Article> getArticles() {
         return null;

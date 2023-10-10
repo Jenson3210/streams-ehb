@@ -1,11 +1,14 @@
-package com.colruytgroup.streams.utils;
+package com.colruytgroup.streams.data;
 
 import com.colruytgroup.streams.domain.orders.OrderLine;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-import static com.colruytgroup.streams.utils.ArticleIdConstants.*;
+import static com.colruytgroup.streams.data.ArticleIdConstants.*;
 
 public class OrderLineConstants {
 
@@ -61,4 +64,6 @@ public class OrderLineConstants {
 
         return orderlines;
     }
+
+    public static List<OrderLine> ALL_ORDER_LINES = Stream.of(order1(), order2(), order3(), order4(), order5()).flatMap(Collection::stream).collect(Collectors.toList());
 }

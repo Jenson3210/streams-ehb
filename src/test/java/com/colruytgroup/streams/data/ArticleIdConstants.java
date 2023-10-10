@@ -1,4 +1,4 @@
-package com.colruytgroup.streams.utils;
+package com.colruytgroup.streams.data;
 
 public class ArticleIdConstants {
     public static final int COFFEE_BEANS = ArticleConstants.COFFEE_BEANS.id();

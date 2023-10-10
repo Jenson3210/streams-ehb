@@ -1,10 +1,10 @@
-package com.colruytgroup.streams.utils;
+package com.colruytgroup.streams.data;
 
 import com.colruytgroup.streams.domain.orders.Order;
 
 import java.util.List;
 
-import static com.colruytgroup.streams.utils.OrderLineConstants.*;
+import static com.colruytgroup.streams.data.OrderLineConstants.*;
 
 public class OrderConstants {
 

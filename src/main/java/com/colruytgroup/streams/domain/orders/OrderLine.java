@@ -1,5 +1,7 @@
 package com.colruytgroup.streams.domain.orders;
 
-import com.colruytgroup.streams.domain.customer.CustomerId;
-
-public record Order(CustomerId customer, List<OrderLine> orderlines) {}
+public record OrderLine(int articleId, int quantity, double price) {
+    public double getTotal() {
+        return price * quantity;
+    }
+}

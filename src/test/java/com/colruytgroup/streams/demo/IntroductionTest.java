@@ -1,5 +1,7 @@
-package com.colruytgroup.streams.domain.orders;
+package com.colruytgroup.streams.demo;
 
+import com.colruytgroup.streams.domain.orders.Order;
+import com.colruytgroup.streams.domain.orders.OrderLine;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collection;
@@ -9,9 +11,27 @@ import java.util.stream.Collectors;
 
 import static com.colruytgroup.streams.data.ArticleIdConstants.*;
 import static com.colruytgroup.streams.data.OrderConstants.ALL_ORDERS;
+import static com.colruytgroup.streams.data.OrderConstants.ORDER_1;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class OrderServiceTest {
+class IntroductionTest {
+
+    @Test
+    void givenOrderWithMultipleOrderLines_whenCalculatingTotalPrice_thenReturnsSumOfOrderLineTotals() {
+        // When
+        double totalPrice = ORDER_1.getTotalNoStream();
+        // Then
+        assertThat(totalPrice).isEqualTo(9);
+    }
+
+    @Test
+    void givenOrderWithMultipleOrderLines_whenCalculatingTotalPriceWithStream_thenReturnsSumOfOrderLineTotals() {
+        // When
+        double totalPrice = ORDER_1.getTotal();
+
+        // Then
+        assertThat(totalPrice).isEqualTo(9);
+    }
 
     @Test
     void givenOrders_whenUsingNoStreams_thenCalculatesOpenOrderCountPerArticleCorrectly() {

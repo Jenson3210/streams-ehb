@@ -1,6 +1,8 @@
-package com.colruytgroup.streams.utils;
+package com.colruytgroup.streams.data;
 
 import com.colruytgroup.streams.domain.articles.Article;
+
+import java.util.List;
 
 public class ArticleConstants {
 
@@ -15,4 +17,23 @@ public class ArticleConstants {
     public static final Article TORTILLA = new Article(9, "Tortilla");
     public static final Article ICE_CREAM = new Article(10, "Ice Cream");
 
+    public static final List<Article> ALL_ARTICLES = List.of(
+            COFFEE_BEANS,
+            PIZZA,
+            CANDY,
+            PINEAPPLE,
+            DONUT,
+            BEER,
+            CHICKEN,
+            APPLE,
+            TORTILLA,
+            ICE_CREAM
+    );
+
+    public static Article getArticle(Integer articleId) {
+        return ArticleConstants.ALL_ARTICLES.stream()
+                .filter(article -> article.id() == articleId)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Article with id " + articleId + " not found"));
+    }
 }

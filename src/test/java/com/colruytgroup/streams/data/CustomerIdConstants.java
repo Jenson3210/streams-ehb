@@ -1,4 +1,4 @@
-package com.colruytgroup.streams.utils;
+package com.colruytgroup.streams.data;
 
 public class CustomerIdConstants {
 
