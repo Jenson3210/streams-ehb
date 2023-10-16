@@ -15,7 +15,7 @@ class Exercise1Test {
         // TODO fixme
         List<Customer> customers = ALL_CUSTOMERS;
 
-        assertThat(customers).size().isEqualTo(15);
+        assertThat(customers).size().isEqualTo(18);
     }
 
     @Test
@@ -23,7 +23,7 @@ class Exercise1Test {
         // TODO fixme
         List<Customer> customers = ALL_CUSTOMERS;
 
-        assertThat(customers).size().isEqualTo(4);
+        assertThat(customers).size().isEqualTo(6);
     }
 
     @Test
@@ -31,6 +31,6 @@ class Exercise1Test {
         // TODO fixme
         List<Customer> customers = ALL_CUSTOMERS;
 
-        assertThat(customers).size().isEqualTo(18);
+        assertThat(customers).size().isEqualTo(24);
     }
 }
