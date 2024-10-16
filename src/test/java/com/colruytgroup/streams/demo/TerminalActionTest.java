@@ -74,19 +74,19 @@ class TerminalActionTest {
         List<OrderLine> orderLines = ALL_ORDER_LINES;
 
         double totalRevenue = orderLines.stream()
-                .mapToDouble(OrderLine::getTotal)
+                .mapToDouble(OrderLine::total)
                 .sum();
 
         double averageSalesPrice = orderLines.stream()
-                .mapToDouble(OrderLine::getTotal)
+                .mapToDouble(OrderLine::total)
                 .average().orElse(0);
 
         double maxOrderLinePrice = orderLines.stream()
-                .mapToDouble(OrderLine::getTotal)
+                .mapToDouble(OrderLine::total)
                 .max().orElse(0);
 
         double minOrderLinePrice = orderLines.stream()
-                .mapToDouble(OrderLine::getTotal)
+                .mapToDouble(OrderLine::total)
                 .min().orElse(0);
 
         System.out.println("total: " + totalRevenue);
@@ -100,17 +100,17 @@ class TerminalActionTest {
         List<OrderLine> orderLines = ALL_ORDER_LINES;
 
         double totalRevenue = orderLines.stream()
-                .collect(Collectors.summingDouble(OrderLine::getTotal));
+                .collect(Collectors.summingDouble(OrderLine::total));
 
         double averageSalesPrice = orderLines.stream()
-                .collect(Collectors.averagingDouble(OrderLine::getTotal));
+                .collect(Collectors.averagingDouble(OrderLine::total));
 
         OrderLine maxOrderLineByPrice = orderLines.stream()
-                .max(Comparator.comparingDouble(OrderLine::getTotal))
+                .max(Comparator.comparingDouble(OrderLine::total))
                 .orElse(null);
 
         OrderLine minOrderLineByPrice = orderLines.stream()
-                .min(Comparator.comparingDouble(OrderLine::getTotal))
+                .min(Comparator.comparingDouble(OrderLine::total))
                 .orElse(null);
 
         System.out.println("total: " + totalRevenue);

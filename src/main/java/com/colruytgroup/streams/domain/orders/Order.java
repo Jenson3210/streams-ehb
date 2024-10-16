@@ -3,17 +3,17 @@ package com.colruytgroup.streams.domain.orders;
 import java.util.List;
 
 public record Order(int id, int customerId, boolean paid, List<OrderLine> orderLines) {
-    public double getTotalNoStream() {
+    public double totalUnstreamed() {
         double price = 0d;
         for (OrderLine orderLine : orderLines) {
-            price += orderLine.getTotal();
+            price += orderLine.total();
         }
         return price;
     }
 
-    public double getTotal() {
+    public double total() {
         return orderLines.stream()
-                .mapToDouble(OrderLine::getTotal)
+                .mapToDouble(OrderLine::total)
                 .sum();
 
     }

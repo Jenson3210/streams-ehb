@@ -30,7 +30,7 @@ class PitfallsTest {
         void serviceCallsOrDatabaseTransactionsInAForLoopCanImpactPerformance() {
             Runnable fetchArticleInForLoop = () -> {
                 for (OrderLine orderLine : ALL_ORDER_LINES) {
-                    OrderLineDTO ol = new OrderLineDTO(getArticle(orderLine.articleId()), orderLine.getTotal());
+                    OrderLineDTO ol = new OrderLineDTO(getArticle(orderLine.articleId()), orderLine.total());
                     System.out.println(ol);
                 }
             };
@@ -38,7 +38,7 @@ class PitfallsTest {
             Runnable fetchArticleFirst = () -> {
                 Map<Integer, Article> articles = getArticles();
                 for (OrderLine orderLine : ALL_ORDER_LINES) {
-                    OrderLineDTO ol = new OrderLineDTO(articles.get(orderLine.articleId()), orderLine.getTotal());
+                    OrderLineDTO ol = new OrderLineDTO(articles.get(orderLine.articleId()), orderLine.total());
                     System.out.println(ol);
                 }
             };
@@ -50,14 +50,14 @@ class PitfallsTest {
         @Test
         void serviceCallsOrDatabaseTransactionsInAStreamCanImpactPerformance() {
             Runnable fetchArticleInStream = () -> ALL_ORDER_LINES.stream()
-                    .map(orderLine -> new OrderLineDTO(getArticle(orderLine.articleId()), orderLine.getTotal()))
+                    .map(orderLine -> new OrderLineDTO(getArticle(orderLine.articleId()), orderLine.total()))
                     .map(Objects::toString)
                     .forEach(System.out::println);
 
             Runnable fetchArticleFirst = () -> {
                 Map<Integer, Article> articles = getArticles();
                 ALL_ORDER_LINES.stream()
-                        .map(orderLine -> new OrderLineDTO(articles.get(orderLine.articleId()), orderLine.getTotal()))
+                        .map(orderLine -> new OrderLineDTO(articles.get(orderLine.articleId()), orderLine.total()))
                         .map(Objects::toString)
                         .forEach(System.out::println);
             };
@@ -74,7 +74,7 @@ class PitfallsTest {
                         .map(order -> {
                             OrderDTO dto = new OrderDTO(getCustomer(order.customerId()));
                             order.orderLines().forEach(orderLine -> {
-                                dto.addOrderLine(new OrderLineDTO(getArticle(orderLine.articleId()), orderLine.getTotal()));
+                                dto.addOrderLine(new OrderLineDTO(getArticle(orderLine.articleId()), orderLine.total()));
                             });
                             return dto;
                         })

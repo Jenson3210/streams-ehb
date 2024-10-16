@@ -19,7 +19,7 @@ class IntroductionTest {
     @Test
     void givenOrderWithMultipleOrderLines_whenCalculatingTotalPrice_thenReturnsSumOfOrderLineTotals() {
         // When
-        double totalPrice = ORDER_1.getTotalNoStream();
+        double totalPrice = ORDER_1.totalUnstreamed();
         // Then
         assertThat(totalPrice).isEqualTo(9);
     }
@@ -27,7 +27,7 @@ class IntroductionTest {
     @Test
     void givenOrderWithMultipleOrderLines_whenCalculatingTotalPriceWithStream_thenReturnsSumOfOrderLineTotals() {
         // When
-        double totalPrice = ORDER_1.getTotal();
+        double totalPrice = ORDER_1.total();
 
         // Then
         assertThat(totalPrice).isEqualTo(9);

@@ -11,7 +11,7 @@ public class CustomerConstants {
     public static final Customer JENTE_SONDERVORST = new Customer(3, "Jente", "Sondervorst");
     public static final Customer JEF_COLRUYT = new Customer(4, "Jef", "Colruyt");
 
-    public static final List<Customer> ALL_CUSTOMERS = getCustomers();
+    [public static final List<Customer> ALL_CUSTOMERS = getCustomers();
 
     private static List<Customer> getCustomers() {
         return List.of(
@@ -50,5 +50,5 @@ public class CustomerConstants {
                 new Customer(129, "Bronte", "Holloway"),
                 new Customer(130, "Kaleb", "Walker")
         );
-    }
+    }]
 }
